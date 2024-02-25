@@ -5,6 +5,12 @@ import cross from "../assets/cross.svg";
 export default function Home() {
   const [menuVisible, setMenuVisible] = useState(false);
 
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+    // Toggle body overflow
+    document.body.style.overflowY = menuVisible ? "auto" : "hidden";
+  };
+
   return (
     <section>
       {/* NAVBAR START */}
@@ -19,33 +25,40 @@ export default function Home() {
           <span className="text-xl font-bold">About</span>
         </div>
         <div className="visible md:hidden">
-          {menuVisible ? (
-            <img
-              src={cross}
-              alt="close"
-              onClick={() => setMenuVisible(false)}
-              className="cursor-pointer"
-            />
-          ) : (
-            <img
-              src={hamburger}
-              alt="hamburger"
-              onClick={() => setMenuVisible(true)}
-              className="cursor-pointer"
-            />
-          )}
+          <img
+            width={35}
+            src={hamburger}
+            alt="menu"
+            onClick={toggleMenu}
+            className="cursor-pointer transition-opacity duration-300"
+          />
         </div>
       </div>
       <div
+        id="second"
         className={`${
-          menuVisible ? "fixed inset-0" : "hidden"
-        } z-10 py-20 px-10 bg-gray-100 text-white`}
+          menuVisible
+            ? "fixed inset-0 opacity-100 transform translate-x-0 transition-transform duration-300 ease-in-out"
+            : "opacity-0 transform translate-x-full transition-transform duration-300 ease-in-out"
+        } z-10 bg-white p-4`}
       >
-        <span className="text-xl font-bold p-5">Home</span>
-        <span className="text-xl font-bold p-5">Work</span>
-        <span className="text-xl font-bold p-5">About</span>
+        <div className="flex items-end flex-col">
+          <img
+            width={35}
+            src={cross}
+            alt="close"
+            onClick={toggleMenu}
+            className="cursor-pointer"
+          />
+          <div className="flex flex-col py-20 px-5">
+            <span className="text-xl font-bold pb-8">Home</span>
+            <span className="text-xl font-bold pb-8">Work</span>
+            <span className="text-xl font-bold pb-8">About</span>
+          </div>
+        </div>
       </div>
       {/* NAVBAR END */}
+      {/* Additional sections or content */}
     </section>
   );
 }
