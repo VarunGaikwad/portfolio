@@ -6,7 +6,8 @@ import MobileMenu from "./MobileMenu";
 
 export default function Home() {
   const menu = [{ name: "Home" }, { name: "Work" }, { name: "About" }],
-    [menuVisible, setMenuVisible] = useState(false);
+    [menuVisible, setMenuVisible] = useState(false),
+    [hovered, setHovered] = useState(false);
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -16,13 +17,25 @@ export default function Home() {
   return (
     <section>
       <div className="flex justify-between items-center p-4">
-        <div className="flex items-center">
-          <div className="size-5 bg-blue-500 rounded-full mx-4"></div>
-          <div className="font-bold text-3xl">Varun Gaikwad</div>
+        <div className="flex items-center cursor-pointer">
+          <div
+            className={`w-8 h-8 bg-blue-500 rounded-full mx-4 transition duration-300 ${
+              hovered ? "rounded-none" : ""
+            }`}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          ></div>
+          <div
+            className="font-bold text-3xl"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            Varun Gaikwad
+          </div>
         </div>
         <div className="hidden md:block">
           {menu.map(({ name }, idx) => (
-            <span key={idx} className="text-xl font-bold">
+            <span key={idx} className="text-xl font-bold px-8">
               {name}
             </span>
           ))}
@@ -39,11 +52,13 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="flex-1 px-10 md:flex">
+      <div className="flex-1 py-10 px-10 md:flex md:items-center md:justify-center md:px-72">
         <img src={istockphoto} />
-        <div className="text-3xl space-y-12 select-none py-8 tracking-wide">
-          <p className="text-6xl text-blue-500 py-4">Hello!</p>I&apos;m Varun
-          Gaikwad, a fullstack web developer.
+        <div className="text-3xl space-y-12 select-none py-8 font-medium md:text-7xl md:justify-center">
+          <p className="text-6xl text-blue-500 py-4 font-bold md:text-9xl">
+            Hello!
+          </p>
+          I&apos;m Varun Gaikwad, a fullstack web developer.
         </div>
       </div>
       <div className={menuVisible ? "" : "hidden"}>
