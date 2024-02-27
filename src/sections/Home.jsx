@@ -1,10 +1,11 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import hamburger from "../assets/hamburger.svg";
 import cross from "../assets/cross.svg";
 import istockphoto from "../assets/istockphoto-removebg.png";
 import MobileMenu from "./MobileMenu";
 
-export default function Home() {
+export default function Home({ scrollToSection }) {
   const menu = [{ name: "Home" }, { name: "Work" }, { name: "About" }],
     [menuVisible, setMenuVisible] = useState(false),
     [hovered, setHovered] = useState(false);
@@ -15,7 +16,7 @@ export default function Home() {
   };
 
   return (
-    <section>
+    <div>
       <div className="flex justify-between items-center p-4">
         <div className="flex items-center cursor-pointer">
           <div
@@ -35,7 +36,13 @@ export default function Home() {
         </div>
         <div className="hidden md:block">
           {menu.map(({ name }, idx) => (
-            <span key={idx} className="text-xl font-bold px-8">
+            <span
+              onClick={() => scrollToSection(name)}
+              key={idx}
+              className={`text-xl font-bold px-8 cursor-pointer ${
+                name === "Home" ? "text-blue-500" : ""
+              }`}
+            >
               {name}
             </span>
           ))}
@@ -58,7 +65,8 @@ export default function Home() {
           <p className="text-6xl text-blue-500 py-4 font-bold md:text-9xl">
             Hello!
           </p>
-          I&apos;m Varun Gaikwad, a fullstack web developer.
+          <span className="md:text-8xl">I</span>&apos;m Varun Gaikwad, a
+          fullstack web developer.
         </div>
       </div>
       <div className={menuVisible ? "" : "hidden"}>
@@ -68,6 +76,10 @@ export default function Home() {
           menuVisible={menuVisible}
         />
       </div>
-    </section>
+    </div>
   );
 }
+
+Home.propTypes = {
+  scrollToSection: PropTypes.func.isRequired,
+};
