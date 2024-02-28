@@ -2,7 +2,7 @@
 
 Welcome to my portfolio! This repository contains the source code for my personal portfolio website.
 
-![Portfolio Preview](https://varungaikwad.github.io/portfolio/)
+![Portfolio Preview](https://raw.githubusercontent.com/VarunGaikwad/portfolio/gh-pages/assets/Preview.png)
 
 ## Live Demo
 
