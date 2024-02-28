@@ -3,12 +3,12 @@ import { useState } from "react";
 import hamburger from "../assets/hamburger.svg";
 import cross from "../assets/cross.svg";
 import istockphoto from "../assets/istockphoto-removebg.png";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "../components/MobileMenu";
 
 export default function Home({ scrollToSection }) {
-  const menu = [{ name: "Home" }, { name: "Work" }, { name: "About" }],
-    [menuVisible, setMenuVisible] = useState(false),
-    [hovered, setHovered] = useState(false);
+  const menu = [{ name: "Home" }, { name: "Work" }, { name: "About" }];
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -16,7 +16,7 @@ export default function Home({ scrollToSection }) {
   };
 
   return (
-    <div>
+    <section className="h-screen bg-gray-100">
       <div className="flex justify-between items-center p-4">
         <div className="flex items-center cursor-pointer">
           <div
@@ -34,7 +34,7 @@ export default function Home({ scrollToSection }) {
             Varun Gaikwad
           </div>
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:flex">
           {menu.map(({ name }, idx) => (
             <span
               onClick={() => scrollToSection(name)}
@@ -47,26 +47,27 @@ export default function Home({ scrollToSection }) {
             </span>
           ))}
         </div>
-        <div className="visible md:hidden">
+        <div className="block md:hidden">
           <img
             width={35}
             src={menuVisible ? cross : hamburger}
             alt="close"
             onClick={toggleMenu}
-            className={`cursor-pointer transition-opacity duration-1000 ${
-              menuVisible ? "opacity-0" : "opacity-100"
-            }`}
+            className="cursor-pointer transition-opacity duration-1000 opacity-100"
           />
         </div>
       </div>
-      <div className="flex-1 py-10 px-10 md:flex md:items-center md:justify-center md:px-72">
-        <img src={istockphoto} />
-        <div className="text-3xl space-y-12 select-none py-8 font-medium md:text-7xl md:justify-center">
-          <p className="text-6xl text-blue-500 py-4 font-bold md:text-9xl">
+      <div className="flex flex-col md:flex-row justify-center items-center py-10 px-6 md:px-10 h-full">
+        <div className="md:w-1/2 md:pr-10 order-2 md:order-1">
+          <img src={istockphoto} className="w-full rounded-lg" />
+        </div>
+        <div className="text-center md:text-left md:w-1/2 order-1 md:order-2">
+          <div className="text-6xl text-blue-500 py-4 font-bold md:text-9xl">
             Hello!
-          </p>
-          <span className="md:text-8xl">I</span>&apos;m Varun Gaikwad, a
-          fullstack web developer.
+          </div>
+          <span className="text-3xl">
+            I&apos;m Varun Gaikwad, a fullstack web developer.
+          </span>
         </div>
       </div>
       <div className={menuVisible ? "" : "hidden"}>
@@ -76,10 +77,11 @@ export default function Home({ scrollToSection }) {
           menuVisible={menuVisible}
         />
       </div>
-    </div>
+    </section>
   );
 }
 
 Home.propTypes = {
   scrollToSection: PropTypes.func.isRequired,
+  ref: PropTypes.object.isRequired,
 };

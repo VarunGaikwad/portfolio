@@ -12,15 +12,17 @@ export default function MobileMenu({ menuVisible, menu, toggleMenu }) {
       } z-10 bg-white p-4`}
     >
       <div className="flex items-end flex-col">
-        <img
-          width={35}
-          src={menuVisible ? cross : hamburger}
-          alt="close"
-          onClick={toggleMenu}
-          className={`cursor-pointer transition-opacity duration-1000 ${
-            menuVisible ? "opacity-100" : "opacity-0"
-          }`}
-        />
+        <div className="flex justify-end">
+          <img
+            width={35}
+            src={menuVisible ? cross : hamburger}
+            alt="close"
+            onClick={toggleMenu}
+            className={`cursor-pointer transition-opacity duration-1000 ${
+              menuVisible ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        </div>
         <div className="flex flex-col py-20 px-5">
           {menu.map(({ name }, idx) => (
             <span

@@ -1,3 +1,3 @@
 export default function Work() {
-  return <section>Work</section>;
+  return <div>Work</div>;
 }
