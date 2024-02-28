@@ -1,18 +1,15 @@
 import Menu from "../components/Menu";
 import triangle from "../assets/triangle.svg";
+import pdf from "../assets/Varun_Gaikwad_Resume.pdf";
 
 export default function About() {
-  const isDev = import.meta.env.MODE === "development";
   const myLinks = [
     { name: "Instagram", link: "https://www.instagram.com/preapexis/" },
     { name: "Linkedin", link: "https://www.linkedin.com/in/varun-gaikwad/" },
     { name: "Email", link: "mailto:gaikwadvarun23@gmail.com" },
     {
       name: "Resume",
-      link: isDev
-        ? "https://github.com/VarunGaikwad/portfolio/raw/694af4f8876c3458906669032897bc596213f497/src/assets/Varun_Gaikwad_Resume.pdf"
-        : "./assets/Varun_Gaikwad_Resume.pdf",
-      download: "Varun_Gaikwad_Resume.pdf",
+      link: pdf,
     },
   ];
   return (
@@ -70,12 +67,12 @@ export default function About() {
             </div>
           </div>
           <div className="ml-10 flex flex-row pt-2">
-            {myLinks.map(({ name, link, download = "" }, idx) => (
+            {myLinks.map(({ name, link }, idx) => (
               <a
                 key={idx}
                 href={link}
                 target="_blank"
-                download={download}
+                download={name.endsWith(".pdf") ? name : undefined}
                 rel="noopener noreferrer"
               >
                 <div className="mr-4 text-sm md:text-base lg:text-xl hover:text-blue-500 cursor-pointer transition duration-300">
