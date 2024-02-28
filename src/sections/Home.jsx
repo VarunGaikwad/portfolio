@@ -13,7 +13,6 @@ export default function Home({ scrollToSection }) {
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
-    document.body.style.overflowY = menuVisible ? "auto" : "hidden";
   };
 
   return (
@@ -37,7 +36,7 @@ export default function Home({ scrollToSection }) {
         </div>
         <div className="hidden md:flex">
           {menu.map(({ name }, idx) => (
-            <span
+            <div
               onClick={() => scrollToSection(name)}
               key={idx}
               className={`text-xl font-bold px-8 cursor-pointer ${
@@ -45,7 +44,7 @@ export default function Home({ scrollToSection }) {
               }`}
             >
               {name}
-            </span>
+            </div>
           ))}
         </div>
         <div className="block md:hidden">
@@ -76,6 +75,7 @@ export default function Home({ scrollToSection }) {
           toggleMenu={toggleMenu}
           menu={menu}
           menuVisible={menuVisible}
+          scrollToSection={scrollToSection}
         />
       </div>
     </div>

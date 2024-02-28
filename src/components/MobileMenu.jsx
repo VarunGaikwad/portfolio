@@ -2,7 +2,12 @@ import PropTypes from "prop-types";
 import hamburger from "../assets/hamburger.svg";
 import cross from "../assets/cross.svg";
 
-export default function MobileMenu({ menuVisible, menu, toggleMenu }) {
+export default function MobileMenu({
+  menuVisible,
+  menu,
+  toggleMenu,
+  scrollToSection,
+}) {
   return (
     <div
       className={`${
@@ -26,7 +31,10 @@ export default function MobileMenu({ menuVisible, menu, toggleMenu }) {
         <div className="flex flex-col py-20 px-5">
           {menu.map(({ name }, idx) => (
             <span
-              onClick={toggleMenu}
+              onClick={() => {
+                scrollToSection(name);
+                toggleMenu();
+              }}
               key={idx}
               className={`text-xl font-bold pb-8 ${
                 name === "Home" ? "text-blue-500" : ""
@@ -49,4 +57,5 @@ MobileMenu.propTypes = {
     })
   ).isRequired,
   toggleMenu: PropTypes.func.isRequired,
+  scrollToSection: PropTypes.func.isRequired,
 };
