@@ -2,17 +2,19 @@ import Menu from "../components/Menu";
 import triangle from "../assets/triangle.svg";
 
 export default function About() {
+  const isDev = import.meta.env.MODE === "development";
   const myLinks = [
     { name: "Instagram", link: "https://www.instagram.com/preapexis/" },
     { name: "Linkedin", link: "https://www.linkedin.com/in/varun-gaikwad/" },
     { name: "Email", link: "mailto:gaikwadvarun23@gmail.com" },
     {
       name: "Resume",
-      link: "src/assets/Varun_Gaikwad_Resume.pdf",
+      link: isDev
+        ? "https://github.com/VarunGaikwad/portfolio/raw/694af4f8876c3458906669032897bc596213f497/src/assets/Varun_Gaikwad_Resume.pdf"
+        : "./assets/Varun_Gaikwad_Resume.pdf",
       download: "Varun_Gaikwad_Resume.pdf",
     },
   ];
-
   return (
     <div>
       <div className="flex flex-col md:flex-row mx-4 md:mx-8 lg:mx-16 pt-4 md:pt-8">
