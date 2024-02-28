@@ -1,6 +1,5 @@
 import Menu from "../components/Menu";
 import triangle from "../assets/triangle.svg";
-import pdf from "../assets/Varun_Gaikwad_Resume.pdf";
 
 export default function About() {
   const myLinks = [
@@ -9,7 +8,7 @@ export default function About() {
     { name: "Email", link: "mailto:gaikwadvarun23@gmail.com" },
     {
       name: "Resume",
-      link: pdf,
+      link: "https://raw.githubusercontent.com/VarunGaikwad/VarunGaikwad/master/Varun_Gaikwad_Resume.pdf",
     },
   ];
   return (
