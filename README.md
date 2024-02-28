@@ -2,7 +2,7 @@
 
 Welcome to my portfolio! This repository contains the source code for my personal portfolio website.
 
-![Portfolio Preview](https://varungaikwad.github.io/portfolio/assets/istockphoto-removebg-BUxOf0g2.png)
+![Portfolio Preview](https://varungaikwad.github.io/portfolio/)
 
 ## Live Demo
 
