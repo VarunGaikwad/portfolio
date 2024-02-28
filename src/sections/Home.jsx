@@ -7,6 +7,7 @@ import MobileMenu from "../components/MobileMenu";
 
 export default function Home({ scrollToSection }) {
   const menu = [{ name: "Home" }, { name: "Work" }, { name: "About" }];
+  menu.splice(1, 1);
   const [menuVisible, setMenuVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -16,11 +17,11 @@ export default function Home({ scrollToSection }) {
   };
 
   return (
-    <section className="h-screen bg-gray-100">
+    <div className="h-screen bg-gray-100">
       <div className="flex justify-between items-center p-4">
         <div className="flex items-center cursor-pointer">
           <div
-            className={`w-8 h-8 bg-blue-500 rounded-full mx-4 transition duration-300 ${
+            className={`w-8 h-8 bg-blue-500 rounded-full mx-3 transition duration-300 ${
               hovered ? "rounded-none" : ""
             }`}
             onMouseEnter={() => setHovered(true)}
@@ -77,11 +78,10 @@ export default function Home({ scrollToSection }) {
           menuVisible={menuVisible}
         />
       </div>
-    </section>
+    </div>
   );
 }
 
 Home.propTypes = {
   scrollToSection: PropTypes.func.isRequired,
-  ref: PropTypes.object.isRequired,
 };

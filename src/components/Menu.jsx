@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export default function Menu({ title, menu }) {
   return (
-    <div className="mb-4 space-y-2">
+    <div className="my-2 space-y-2">
       <div className="text-base md:text-lg lg:text-3xl font-semibold">
         {title}
       </div>

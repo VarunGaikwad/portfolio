@@ -6,6 +6,11 @@ export default function About() {
     { name: "Instagram", link: "https://www.instagram.com/preapexis/" },
     { name: "Linkedin", link: "https://www.linkedin.com/in/varun-gaikwad/" },
     { name: "Email", link: "mailto:gaikwadvarun23@gmail.com" },
+    {
+      name: "Resume",
+      link: "src/assets/Varun_Gaikwad_Resume.pdf",
+      download: "Varun_Gaikwad_Resume.pdf",
+    },
   ];
 
   return (
@@ -33,7 +38,7 @@ export default function About() {
           </div>
         </div>
         <div className="md:w-1/3 md:pl-4">
-          <div className="flex flex-col">
+          <div className="flex flex-row space-x-8 md:flex-col md:space-x-0">
             <Menu
               title="What I like"
               menu={[
@@ -63,14 +68,15 @@ export default function About() {
             </div>
           </div>
           <div className="ml-10 flex flex-row pt-2">
-            {myLinks.map(({ name, link }, idx) => (
+            {myLinks.map(({ name, link, download = "" }, idx) => (
               <a
                 key={idx}
                 href={link}
                 target="_blank"
+                download={download}
                 rel="noopener noreferrer"
               >
-                <div className="mr-4 text-sm md:text-base lg:text-xl hover:text-blue-500 hover:text-lg cursor-pointer transition duration-300">
+                <div className="mr-4 text-sm md:text-base lg:text-xl hover:text-blue-500 cursor-pointer transition duration-300">
                   {name}
                 </div>
               </a>

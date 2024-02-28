@@ -1,7 +1,7 @@
 // App component
 import { useRef } from "react";
 import Home from "./sections/Home";
-import Work from "./sections/Work";
+// import Work from "./sections/Work";
 import About from "./sections/About";
 
 export default function App() {
@@ -29,9 +29,11 @@ export default function App() {
       <section className="h-screen bg-gray-100" ref={homeRef}>
         <Home scrollToSection={scrollToSection} />
       </section>
-      <section className="h-screen bg-gray-100" ref={workRef}>
+      <hr className="border-gray-700 my-0 mx-16" />
+      {/* <section className="h-screen bg-gray-100" ref={workRef}>
         <Work />
-      </section>
+      </section> 
+      <hr className="border-gray-700 my-0 mx-16" />*/}
       <section className="h-screen bg-gray-100" ref={aboutRef}>
         <About />
       </section>

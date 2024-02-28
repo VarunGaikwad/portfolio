@@ -28,7 +28,9 @@ export default function MobileMenu({ menuVisible, menu, toggleMenu }) {
             <span
               onClick={toggleMenu}
               key={idx}
-              className="text-xl font-bold pb-8"
+              className={`text-xl font-bold pb-8 ${
+                name === "Home" ? "text-blue-500" : ""
+              }`}
             >
               {name}
             </span>
