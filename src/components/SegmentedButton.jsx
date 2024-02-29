@@ -1,6 +1,6 @@
 import sun from "../assets/sun.svg";
 import moon from "../assets/moon.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 export default function SegmentedButton({ onSwitch }) {
@@ -9,6 +9,17 @@ export default function SegmentedButton({ onSwitch }) {
     { key: "light", src: sun },
     { key: "dark", src: moon },
   ];
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
+
+    localStorage.whichMode =
+      localStorage.whichMode || (darkModeMediaQuery.matches ? "dark" : "");
+
+    setSelected(localStorage.whichMode);
+  }, []);
 
   return (
     <div className="cursor-pointer flex flex-row w-max rounded-3xl border-2 border-gray-600 dark:border-gray-200">
