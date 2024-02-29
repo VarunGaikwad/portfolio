@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
 import hamburger from "../assets/hamburger.svg";
 import cross from "../assets/cross.svg";
+import SegmentedButton from "./SegmentedButton";
 
 export default function MobileMenu({
   menuVisible,
   menu,
   toggleMenu,
   scrollToSection,
+  onSwitch,
 }) {
   return (
     <div
@@ -14,7 +16,7 @@ export default function MobileMenu({
         menuVisible
           ? "fixed inset-0 opacity-100 transform translate-x-0 transition-transform duration-300 ease-in-out"
           : "opacity-0 transform translate-x-full transition-transform duration-300 ease-in-out"
-      } z-10 bg-white p-4`}
+      } z-10 bg-white dark:bg-black p-4`}
     >
       <div className="flex items-end flex-col">
         <div className="flex justify-end">
@@ -43,6 +45,7 @@ export default function MobileMenu({
               {name}
             </span>
           ))}
+          <SegmentedButton onSwitch={onSwitch} />
         </div>
       </div>
     </div>
@@ -58,4 +61,5 @@ MobileMenu.propTypes = {
   ).isRequired,
   toggleMenu: PropTypes.func.isRequired,
   scrollToSection: PropTypes.func.isRequired,
+  onSwitch: PropTypes.func.isRequired,
 };

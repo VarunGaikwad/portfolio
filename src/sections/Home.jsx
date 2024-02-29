@@ -4,10 +4,10 @@ import hamburger from "../assets/hamburger.svg";
 import cross from "../assets/cross.svg";
 import istockphoto from "../assets/istockphoto-removebg.png";
 import MobileMenu from "../components/MobileMenu";
+import SegmentedButton from "../components/SegmentedButton";
 
-export default function Home({ scrollToSection }) {
+export default function Home({ scrollToSection, onSwitch }) {
   const menu = [{ name: "Home" }, { name: "Work" }, { name: "About" }];
-  menu.splice(1, 1);
   const [menuVisible, setMenuVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -16,7 +16,7 @@ export default function Home({ scrollToSection }) {
   };
 
   return (
-    <div className="h-screen bg-gray-100">
+    <div className="h-screen">
       <div className="flex justify-between items-center p-4">
         <div className="flex items-center cursor-pointer">
           <div
@@ -34,19 +34,23 @@ export default function Home({ scrollToSection }) {
             Varun Gaikwad
           </div>
         </div>
-        <div className="hidden md:flex">
-          {menu.map(({ name }, idx) => (
-            <div
-              onClick={() => scrollToSection(name)}
-              key={idx}
-              className={`text-xl font-bold px-8 cursor-pointer ${
-                name === "Home" ? "text-blue-500" : ""
-              }`}
-            >
-              {name}
-            </div>
-          ))}
+        <div className="hidden md:flex md:items-center">
+          <SegmentedButton onSwitch={onSwitch} />
+          <div className="hidden md:flex">
+            {menu.map(({ name }, idx) => (
+              <div
+                onClick={() => scrollToSection(name)}
+                key={idx}
+                className={`text-xl font-bold px-8 cursor-pointer ${
+                  name === "Home" ? "text-blue-500" : ""
+                }`}
+              >
+                {name}
+              </div>
+            ))}
+          </div>
         </div>
+
         <div className="block md:hidden">
           <img
             width={35}
@@ -57,7 +61,7 @@ export default function Home({ scrollToSection }) {
           />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-center items-center py-10 px-6 md:px-10 h-full">
+      <div className="select-none flex flex-col md:flex-row justify-center items-center py-10 px-6 md:px-10 h-full">
         <div className="md:w-1/2 md:pr-10 order-2 md:order-1">
           <img src={istockphoto} className="w-full rounded-lg" />
         </div>
@@ -72,6 +76,7 @@ export default function Home({ scrollToSection }) {
       </div>
       <div className={menuVisible ? "" : "hidden"}>
         <MobileMenu
+          onSwitch={onSwitch}
           toggleMenu={toggleMenu}
           menu={menu}
           menuVisible={menuVisible}
@@ -84,4 +89,5 @@ export default function Home({ scrollToSection }) {
 
 Home.propTypes = {
   scrollToSection: PropTypes.func.isRequired,
+  onSwitch: PropTypes.func.isRequired,
 };
