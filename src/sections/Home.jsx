@@ -7,7 +7,7 @@ import MobileMenu from "../components/MobileMenu";
 import SegmentedButton from "../components/SegmentedButton";
 
 export default function Home({ scrollToSection, onSwitch }) {
-  const menu = [{ name: "Home" }, { name: "Work" }, { name: "About" }];
+  const menu = [{ name: "Home" }, /*{ name: "Work" },*/ { name: "About" }];
   const [menuVisible, setMenuVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
 

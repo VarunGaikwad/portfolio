@@ -30,7 +30,7 @@ export default function MobileMenu({
             }`}
           />
         </div>
-        <div className="flex flex-col py-20 px-5">
+        <div className="flex flex-col py-20 px-5 items-center">
           {menu.map(({ name }, idx) => (
             <span
               onClick={() => {
