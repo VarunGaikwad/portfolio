@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Home from "./sections/Home";
 import About from "./sections/About";
-// import Work from "./sections/Work";
+import Work from "./sections/Work";
 
 export default function App() {
   const homeRef = useRef(null);
@@ -45,9 +45,9 @@ export default function App() {
           <Home scrollToSection={scrollToSection} onSwitch={onSwitch} />
         </section>
         <hr className="border-gray-950 dark:border-gray-100 my-0 mx-4" />
-        {/* <section className="h-screen" ref={workRef}>
+        <section className="h-screen" ref={workRef}>
           <Work />
-        </section> */}
+        </section>
         <hr className="border-gray-950 dark:border-gray-100 my-0 mx-4" />
         <section className="h-screen" ref={aboutRef}>
           <About />
