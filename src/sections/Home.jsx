@@ -6,7 +6,7 @@ import istockphoto from "../assets/istockphoto-removebg.png";
 import MobileMenu from "../components/MobileMenu";
 import SegmentedButton from "../components/SegmentedButton";
 
-export default function Home({ scrollToSection, onSwitch }) {
+export default function Home({ scrollToSection, onSwitch, isVisible }) {
   const menu = [{ name: "Home" }, /*{ name: "Work" },*/ { name: "About" }];
   const [menuVisible, setMenuVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -61,11 +61,15 @@ export default function Home({ scrollToSection, onSwitch }) {
           />
         </div>
       </div>
-      <div className="select-none flex flex-col md:flex-row justify-center items-center py-10 px-6 md:px-10 h-full">
+      <div
+        className={`select-none flex flex-col md:flex-row justify-center items-center py-10 px-6 md:px-10 h-full ${
+          isVisible ? "fade-in-animation" : "hidden"
+        }`}
+      >
         <div className="md:w-1/2 md:pr-10 order-2 md:order-1">
           <img src={istockphoto} className="w-full rounded-lg" />
         </div>
-        <div className="text-center md:text-left md:w-1/2 order-1 md:order-2">
+        <div className={`text-center md:text-left md:w-1/2 order-1 md:order-2`}>
           <div className="text-6xl text-blue-500 py-4 font-bold md:text-9xl">
             Hello!
           </div>
@@ -90,4 +94,5 @@ export default function Home({ scrollToSection, onSwitch }) {
 Home.propTypes = {
   scrollToSection: PropTypes.func.isRequired,
   onSwitch: PropTypes.func.isRequired,
+  isVisible: PropTypes.bool.isRequired,
 };

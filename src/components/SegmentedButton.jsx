@@ -16,7 +16,7 @@ export default function SegmentedButton({ onSwitch }) {
     );
 
     localStorage.whichMode =
-      localStorage.whichMode || (darkModeMediaQuery.matches ? "dark" : "");
+      localStorage.whichMode || (darkModeMediaQuery.matches ? "dark" : "light");
 
     setSelected(localStorage.whichMode);
   }, []);

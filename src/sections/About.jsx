@@ -1,7 +1,8 @@
 import Menu from "../components/Menu";
+import PropTypes from "prop-types";
 import triangle from "../assets/triangle.svg";
 
-export default function About() {
+export default function About({ isVisible }) {
   const myLinks = [
     { name: "Instagram", link: "https://www.instagram.com/preapexis/" },
     { name: "Linkedin", link: "https://www.linkedin.com/in/varun-gaikwad/" },
@@ -12,12 +13,16 @@ export default function About() {
     },
   ];
   return (
-    <div>
+    <div className={`${isVisible ? "fade-in-animation" : "hidden"}`}>
       <div className="flex flex-col md:flex-row mx-4 md:mx-8 lg:mx-16 pt-4 md:pt-8">
         <div className="md:w-2/3 md:pr-4">
           <div className="mb-4 flex items-center">
             <div className="w-6 h-6 bg-blue-500 rounded-md mr-4"></div>
-            <div className="text-base md:text-lg lg:text-3xl font-semibold">
+            <div
+              className={`text-base md:text-lg lg:text-3xl font-semibold ${
+                isVisible ? "fade-in-animation" : ""
+              }`}
+            >
               I&apos;m Varun Gaikwad, a full-stack web developer.
             </div>
           </div>
@@ -85,3 +90,7 @@ export default function About() {
     </div>
   );
 }
+
+About.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+};

@@ -12,3 +12,21 @@
   font-family: "Poppins", sans-serif;
   font-style: normal;
 }
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-animation {
+  animation: fadeInAnimation 2.5s ease-in-out both;
+}
