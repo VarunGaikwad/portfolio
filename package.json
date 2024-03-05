@@ -13,6 +13,7 @@
     "push": "git add . && git commit -m \"Robo Push\" && git push origin master"
   },
   "dependencies": {
+    "posthog-js": "^1.110.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
