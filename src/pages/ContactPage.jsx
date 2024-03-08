@@ -47,11 +47,11 @@ export default function ContactPage() {
           </a>
         </div>
         <br />
-        <div>
-          <span>On Internet&nbsp;:&nbsp;</span>
+        <div className="flex flex-wrap">
+          <span className="mr-2">On Internet&nbsp;:&nbsp;</span>
           {contactLink.map(({ name, href }, idx) => (
-            <span key={idx}>
-              <a target="_blank" href={href}>
+            <span className="text-wrap" key={idx}>
+              <a target="_blank" href={href} className="mr-2">
                 {name}
               </a>
               {idx !== contactLink.length - 1 && <span>&nbsp;/&nbsp;</span>}
