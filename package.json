@@ -13,9 +13,11 @@
     "push": "git add . && git commit -m \"Robo Push\" && git push origin master"
   },
   "dependencies": {
+    "@swup/preload-plugin": "^3.2.10",
     "posthog-js": "^1.110.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "swup": "^4.6.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

@@ -1,8 +1,0 @@
-<svg
-  className="w-6 h-6 mr-4"
-  viewBox="0 0 10 10"
-  fill="limegreen"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path d="M 0 10 L 5 0 L 10 10 Z" />
-</svg>

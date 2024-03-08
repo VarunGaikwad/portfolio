@@ -1,65 +1,40 @@
 export default function InfoPage() {
-  const socialLink = [
-      {
-        name: "LinkedIn",
-        mobileName: "LI",
-        href: "https://www.linkedin.com/in/varun-gaikwad/",
-      },
-      {
-        name: "GitHub",
-        mobileName: "GH",
-        href: "https://github.com/VarunGaikwad",
-      },
-      {
-        name: "Instagram",
-        mobileName: "IG",
-        href: "https://www.instagram.com/preapexis/",
-      },
-      {
-        name: "Facebook",
-        mobileName: "FB",
-        href: "https://www.facebook.com/gaikwadvarun23",
-      },
-    ],
-    year = new Date().getFullYear(),
-    otherPage = [{ name: "Work" }, { name: "About" }, { name: "Contact" }];
-
+  const otherPage = [
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ];
   return (
-    <div>
-      <div className="flex justify-evenly items-center">
-        {socialLink.map(({ name, href, mobileName }, idx) => (
-          <a key={idx} href={href} target="_blank" rel="noopener noreferrer">
-            <span className="hidden lg:inline">{name}</span>
-            <span className="lg:hidden">{mobileName}</span>
+    <div className="py-4 flex flex-col xl:flex-row justify-around">
+      <div className="flex flex-col tracking-wider space-y-10 xl:justify-end xl:p-4">
+        <span className="uppercase tracking-widest font-semibold">
+          Varun Gaikwad
+        </span>
+        <span>
+          Product Designer / Frontend Developer / Fullstack Developer.
+        </span>
+        <span>
+          Currently working full-time as a <q>Senior Technical Consultant</q> at{" "}
+          <a
+            href={"https://initiumdigital.com/"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Initium Digital
           </a>
-        ))}
-        <div className="h-1 w-10 bg-black"></div>
-        <div>©️/{year}</div>
+        </span>
       </div>
-      <div>
-        <div>
-          <div>Varun Gaikwad</div>
-          <div>
-            <div>Product Designer / Frontend Developer.</div>
-            <div>
-              Currently working full-time as aSenior Technical Consultant at
-              <a
-                href={"https://initiumdigital.com/"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Initium Digital
-              </a>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div>
-            {otherPage.map(({ name }, idx) => (
-              <div key={idx}>{name}</div>
-            ))}
-          </div>
-        </div>
+      <div className="py-8 flex flex-col text-8xl space-y-4 justify-center">
+        {otherPage.map(({ name, href }, idx) => (
+          <span
+            onClick={() => {
+              window.location.href = href;
+            }}
+            className="w-max font-custom page-nav cursor-pointer"
+            key={idx}
+          >
+            {name}
+          </span>
+        ))}
       </div>
     </div>
   );
