@@ -1,7 +1,7 @@
 export default function InfoPage() {
   const otherPage = [
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "About", href: "about" },
+    { name: "Contact", href: "contact" },
   ];
   return (
     <div className="py-4 flex flex-col xl:flex-row justify-around">
@@ -27,7 +27,9 @@ export default function InfoPage() {
         {otherPage.map(({ name, href }, idx) => (
           <span
             onClick={() => {
-              window.location.href = href;
+              let param = new URLSearchParams();
+              param.set("page", href);
+              window.location.href += "?" + param.toString();
             }}
             className="w-max font-custom page-nav cursor-pointer"
             key={idx}
