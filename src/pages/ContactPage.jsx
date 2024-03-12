@@ -32,7 +32,7 @@ export default function ContactPage() {
     },
   ];
   return (
-    <div className="py-4 flex flex-col xl:flex-row justify-around">
+    <div className="py-16 flex flex-col xl:flex-row justify-around">
       <div className="flex flex-col xl:p-32">
         <span className="capitalize text-9xl font-custom tracking-widest">
           Hello.

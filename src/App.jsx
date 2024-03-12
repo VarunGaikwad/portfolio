@@ -65,7 +65,7 @@ export default function App() {
       );
 
   return (
-    <div className={`${animateClass} h-max`}>
+    <div className={animateClass}>
       <ReUsePage navbarLink={allNavLink}>{content}</ReUsePage>
     </div>
   );

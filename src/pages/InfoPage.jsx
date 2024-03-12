@@ -4,7 +4,7 @@ export default function InfoPage() {
     { name: "Contact", href: "contact" },
   ];
   return (
-    <div className="py-4 flex flex-col xl:flex-row justify-around">
+    <div className="h-screen xl:h-auto flex flex-col xl:flex-row justify-around">
       <div className="flex flex-col tracking-wider space-y-10 xl:justify-end xl:p-4">
         <span className="uppercase tracking-widest font-semibold">
           Varun Gaikwad
