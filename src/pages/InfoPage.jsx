@@ -4,7 +4,7 @@ export default function InfoPage() {
     { name: "Contact", href: "contact" },
   ];
   return (
-    <div className="h-screen xl:h-auto flex flex-col xl:flex-row justify-around">
+    <div className="flex-grow flex flex-col xl:flex-row justify-around">
       <div className="flex flex-col tracking-wider space-y-10 xl:justify-end xl:p-4">
         <span className="uppercase tracking-widest font-semibold">
           Varun Gaikwad
@@ -23,7 +23,7 @@ export default function InfoPage() {
           </a>
         </span>
       </div>
-      <div className="py-8 flex flex-col text-8xl space-y-4 justify-center">
+      <div className="flex flex-col text-8xl space-y-4 justify-center">
         {otherPage.map(({ name, href }, idx) => (
           <span
             onClick={() => {
