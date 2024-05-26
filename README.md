@@ -12,14 +12,6 @@ Welcome to my personal portfolio website. This site showcases my skills, project
 - **Experience**: Summary of my professional experience and roles.
 - **Contact**: Contact form and social media links to get in touch with me.
 
-## Screenshots
-
-![About Me Page](path/to/about_me_screenshot.png)
-*About Me Page*
-
-![Contact Page](path/to/contact_screenshot.png)
-*Contact Page*
-
 ## Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript for the structure, styling, and interactivity of the website.
