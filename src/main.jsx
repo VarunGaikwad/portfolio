@@ -1,13 +1,13 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./sections/Home.jsx";
 import Layout from "./sections/Layout.jsx";
 import About from "./sections/About.jsx";
 import NotFound from "./sections/NotFound.jsx";
 import Resume from "./sections/Resume.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Layout />,
