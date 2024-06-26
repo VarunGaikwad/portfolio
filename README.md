@@ -21,4 +21,4 @@ The portfolio is live at: [https://varungaikwad.github.io/portfolio/](https://va
 
 ## Contact
 
-For any inquiries or collaborations, feel free to reach out to Varun Gaikwad via [email](mailto:gaikwadvarun23@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/varungaikwad).
+For any inquiries or collaborations, feel free to reach out to Varun Gaikwad via [email](mailto:gaikwadvarun23@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/varun-gaikwad/).
