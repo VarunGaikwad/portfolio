@@ -25,9 +25,12 @@ export default function Navbar() {
       className={`text-white fixed top-0 w-full bg-deep-green bg-opacity-50 transition-color duration-1000 ease-in-out`}
     >
       <div className="flex justify-between items-center p-4">
-        <a className={`text-2xl md:text-4xl font-bold tracking-wide`} href="/">
+        <Link
+          className={`text-2xl md:text-4xl font-bold tracking-wide`}
+          href="/"
+        >
           Varun Gaikwad
-        </a>
+        </Link>
         <div>
           <div className="md:flex gap-4 text-xl font-bold tracking-wide hidden">
             {menus.map((menu, idx) => (
