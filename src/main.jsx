@@ -1,17 +1,37 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import "./global.css";
-import posthog from "posthog-js";
-import App from "./App.jsx";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./sections/Home.jsx";
+import Layout from "./sections/Layout.jsx";
+import About from "./sections/About.jsx";
+import NotFound from "./sections/NotFound.jsx";
+import Resume from "./sections/Resume.jsx";
 
-posthog.init(import.meta.env.VITE_POSTHOG_API_KEY, {
-  api_host: "https://app.posthog.com",
-});
-
-posthog.capture("My event", { property: "Value" });
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/resume",
+        element: <Resume />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <RouterProvider router={router} />
 );
