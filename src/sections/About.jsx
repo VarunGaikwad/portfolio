@@ -92,7 +92,10 @@ export default function About() {
           <span>
             Hi Everyone, I am{" "}
             <span className="text-deep-blue">Varun Gaikwad</span>. I have
-            completed B.Tech from Pune University
+            completed{" "}
+            <em className="text-deep-blue">
+              Bachelor of Engineering in Computer Engineering
+            </em>
           </span>
           <span>
             Apart from coding, I love:
