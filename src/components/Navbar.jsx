@@ -1,6 +1,9 @@
 import { useState } from "react";
 import MenuButton from "./MenuButton";
 import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { SiAboutdotme } from "react-icons/si";
+import { IoDocumentTextSharp } from "react-icons/io5";
 
 export default function Navbar() {
   const [active, setActive] = useState(false),
@@ -8,15 +11,18 @@ export default function Navbar() {
     menus = [
       {
         name: "Home",
+        icon: <FaHome />,
         link: "/",
       },
       {
         name: "About",
+        icon: <SiAboutdotme />,
         link: "/about",
       },
       {
         name: "Resume",
         link: "/resume",
+        icon: <IoDocumentTextSharp />,
       },
     ];
 
@@ -34,7 +40,12 @@ export default function Navbar() {
         <div>
           <div className="md:flex gap-4 text-xl font-bold tracking-wide hidden">
             {menus.map((menu, idx) => (
-              <Link to={menu.link} key={idx}>
+              <Link
+                className="relative flex items-start gap-2 nav-link transition-transform duration-300 ease-in-out transform hover:scale-105 hover:text-deep-blue"
+                to={menu.link}
+                key={idx}
+              >
+                {menu.icon}
                 {menu.name}
               </Link>
             ))}

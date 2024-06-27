@@ -32,6 +32,16 @@ const router = createHashRouter([
   },
 ]);
 
+const promise = [
+  fetch("./assets/pdf/1.png"),
+  fetch("./assets/pdf/2.png"),
+  fetch(
+    "https://github.com/VarunGaikwad/VarunGaikwad/raw/master/Varun_Gaikwad_Resume.pdf"
+  ),
+];
+
+Promise.all(promise);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
 );
